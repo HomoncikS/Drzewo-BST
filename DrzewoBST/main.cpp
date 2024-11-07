@@ -1,11 +1,15 @@
 ﻿#include <iostream>
 #include "BST.h"
 
+/// Wyświetlenie menu
 void wyswietlMenu() {
     std::cout << "1. Dodaj element\n";
     std::cout << "2. Usun element\n";
     std::cout << "3. Usun cale drzewo\n";
     std::cout << "4. Szukaj drogi do elementu\n";
+    std::cout << "5. Wyswietl drzewo (preorder)\n";
+    std::cout << "6. Wyswietl drzewo (inorder)\n";
+    std::cout << "7. Wyswietl drzewo (postorder)\n";
 }
 
     int main() {
@@ -47,6 +51,15 @@ void wyswietlMenu() {
                         std::cout << std::endl;
                     }
                 }
+            case 5:
+                drzewo.wyswietlPreOrder();
+                break;
+            case 6:
+                drzewo.wyswietlInOrder();
+                break;
+            case 7:
+                drzewo.wyswietlPostOrder();
+                break;
                 break;
             case 0:
                 return 0;

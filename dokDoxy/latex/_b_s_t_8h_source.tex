@@ -1,0 +1,45 @@
+\doxysection{BST.\+h}
+\hypertarget{_b_s_t_8h_source}{}\label{_b_s_t_8h_source}\mbox{\hyperlink{_b_s_t_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BST\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BST\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_drzewo_b_s_t}{DrzewoBST}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel_a297e88dc664c43a448d2ef89ee7b46e3}{wartosc}};}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}*\ \mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel_aa4fcd4fc58179c71289af5aef20c32f1}{lewy}};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}*\ \mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel_a88e049002be740f71de0509d566645c5}{prawy}};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel_aaf9ed65805d849dd2dd9779be6df7654}{Wezel}}(\textcolor{keywordtype}{int}\ wart)\ :\ \mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel_a297e88dc664c43a448d2ef89ee7b46e3}{wartosc}}(wart),\ \mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel_aa4fcd4fc58179c71289af5aef20c32f1}{lewy}}(nullptr),\ \mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel_a88e049002be740f71de0509d566645c5}{prawy}}(nullptr)\ \{\}}
+\DoxyCodeLine{00017\ \ \ \ \ \};}
+\DoxyCodeLine{00018\ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_drzewo_b_s_t_ac7be3d099f50d29c4c2b897e1c9bef82}{DrzewoBST}}()\ :\ korzen(nullptr)\ \{\}}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_drzewo_b_s_t_aa77e877849d1de258734a8a33cc79a68}{\string~DrzewoBST}}()\ \{\ \mbox{\hyperlink{class_drzewo_b_s_t_a0def6110d7fa88c53c905caed8f68b6c}{usunDrzewo}}();\ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_drzewo_b_s_t_a0255b47bbe1e8da676cac1bf52583812}{dodaj}}(\textcolor{keywordtype}{int}\ wartosc);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_drzewo_b_s_t_afd3009ed92e554c2547256b16d438433}{usun}}(\textcolor{keywordtype}{int}\ wartosc);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_drzewo_b_s_t_a0def6110d7fa88c53c905caed8f68b6c}{usunDrzewo}}();}
+\DoxyCodeLine{00027\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{class_drzewo_b_s_t_a439d2f3e2bae9b1ef66e1662bca74463}{szukajSciezki}}(\textcolor{keywordtype}{int}\ wartosc);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_drzewo_b_s_t_a64d6e306827f65fe6c73a13870d91532}{wyswietlPreOrder}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_drzewo_b_s_t_a90fad840a34cd8583db342eb7c65fbf0}{wyswietlInOrder}}();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_drzewo_b_s_t_ae8b177e191765099fbd57680e46f20ce}{wyswietlPostOrder}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}*\ korzen;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}*\ dodajRekurencyjnie(\mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}*\ wezel,\ \textcolor{keywordtype}{int}\ wartosc);}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}*\ usunRekurencyjnie(\mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}*\ wezel,\ \textcolor{keywordtype}{int}\ wartosc);}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}*\ znajdzMin(\mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}*\ wezel);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_drzewo_b_s_t_a0def6110d7fa88c53c905caed8f68b6c}{usunDrzewo}}(\mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}*\ wezel);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ szukajSciezkiRekurencyjnie(\mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}*\ wezel,\ \textcolor{keywordtype}{int}\ wartosc,\ std::vector<int>\&\ sciezka);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_drzewo_b_s_t_a64d6e306827f65fe6c73a13870d91532}{wyswietlPreOrder}}(\mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}*\ wezel);}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_drzewo_b_s_t_a90fad840a34cd8583db342eb7c65fbf0}{wyswietlInOrder}}(\mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}*\ wezel);}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_drzewo_b_s_t_ae8b177e191765099fbd57680e46f20ce}{wyswietlPostOrder}}(\mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}*\ wezel);}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
