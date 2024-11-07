@@ -20,7 +20,7 @@ public:
     void dodaj(int wartosc);
     bool usun(int wartosc);
     void usunDrzewo();
-
+    std::vector<int> szukajSciezki(int wartosc);
 
 private:
     Wezel* korzen;
@@ -29,6 +29,6 @@ private:
     Wezel* usunRekurencyjnie(Wezel* wezel, int wartosc);
     Wezel* znajdzMin(Wezel* wezel);
     void usunDrzewo(Wezel* wezel);
-
+    bool szukajSciezkiRekurencyjnie(Wezel* wezel, int wartosc, std::vector<int>& sciezka);
 };
 #endif
