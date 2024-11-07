@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+/.vs/DrzewoBST/v17/Browse.VC.db
+/.vs/DrzewoBST/v17/Browse.VC.db-shm
+/.vs/DrzewoBST/v17/Browse.VC.db-wal
+/.vs/DrzewoBST/v17/Browse.VC.opendb
