@@ -63,3 +63,17 @@ void DrzewoBST::usunDrzewo(Wezel* wezel) {
         delete wezel;
     }
 }
+
+bool DrzewoBST::szukajSciezkiRekurencyjnie(Wezel* wezel, int wartosc, std::vector<int>& sciezka) {
+    if (!wezel) return false;
+    sciezka.push_back(wezel->wartosc);
+    if (wezel->wartosc == wartosc) {
+        return true;
+    }
+    if (wartosc < wezel->wartosc) {
+        return szukajSciezkiRekurencyjnie(wezel->lewy, wartosc, sciezka);
+    }
+    else {
+        return szukajSciezkiRekurencyjnie(wezel->prawy, wartosc, sciezka);
+    }
+}
