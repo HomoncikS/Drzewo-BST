@@ -18,6 +18,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="ZapisOdczyt.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
     <ClCompile Include="BST.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
@@ -26,5 +29,11 @@
     <ClInclude Include="BST.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="ZapisOdczyt.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="dane.txt" />
   </ItemGroup>
 </Project>
