@@ -129,9 +129,14 @@
   <ItemGroup>
     <ClCompile Include="BST.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ZapisOdczyt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BST.h" />
+    <ClInclude Include="ZapisOdczyt.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="dane.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
