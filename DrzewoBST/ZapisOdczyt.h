@@ -6,8 +6,8 @@
 
 class ZapisOdczyt {
 public:
-    static void zapiszDrzewoBinarne(DrzewoBST& drzewo, const std::string& nazwa_pliku);
-    static void wczytajDrzewoBinarne(DrzewoBST& drzewo, const std::string& nazwa_pliku);
+    static void zapiszDrzewoBinarne(DrzewoBST& drzewo, const std::string& nazwa_pliku); // Zapis drzewa do pliku tekstowego
+    static void wczytajDrzewoBinarne(DrzewoBST& drzewo, const std::string& nazwa_pliku); // Wczytanie drzewa z pliku tekstowego
 };
 
 #endif
