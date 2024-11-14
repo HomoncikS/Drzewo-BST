@@ -2,7 +2,7 @@
 #include "BST.h"
 #include "ZapisOdczyt.h"
 
-
+/// Wyświetla menu
 void wyswietlMenu() {
     std::cout << "1. Dodaj element\n";
     std::cout << "2. Usun element\n";
@@ -20,75 +20,101 @@ void wyswietlMenu() {
 
 int main() {
     DrzewoBST drzewo;     
-    int wybor, wartosc;    // Zmienna przechowująca numer opcji w menu
-    std::string nazwa_pliku; // Zmienna przechowująca nazwę pliku
+    /// Zmienna przechowująca numer opcji w menu
+    int wybor, wartosc;    
+    /// Zmienna przechowująca nazwę pliku
+    std::string nazwa_pliku; 
+    /// Pętla do momentu wybrania opcji wyjścia
+    while (true) {   
+        /// Wyświetlenie menu
+        wyswietlMenu();   
+        /// Wczytanie wyboru opcji przez użytkownika
+        std::cin >> wybor; 
 
-    while (true) {   // Pętla do momentu wybrania opcji wyjścia
-        wyswietlMenu();   // Wyświetlenie menu
-        std::cin >> wybor; // Wczytanie wyboru opcji przez użytkownika
-
-        switch (wybor) {  // Obsługa opcji w menu
+        /// Obsługa opcji w menu
+        switch (wybor) {  
         case 1:
             std::cout << "Podaj wartosc: ";
-            std::cin >> wartosc; // Wczytanie wartości do dodania
-            drzewo.dodaj(wartosc); // Dodanie elementu do drzewa
+            /// Wczytanie wartości do dodania
+            std::cin >> wartosc; 
+            /// Dodanie elementu do drzewa
+            drzewo.dodaj(wartosc); 
             break;
         case 2:
             std::cout << "Podaj wartosc do usuniecia: ";
-            std::cin >> wartosc; // Wczytanie wartości do usunięcia
-            drzewo.usun(wartosc); // Usunięcie elementu z drzewa
+            /// Wczytanie wartości do usunięcia
+            std::cin >> wartosc; 
+            /// Usunięcie elementu z drzewa
+            drzewo.usun(wartosc);
             break;
         case 3:
-            drzewo.usunDrzewo(); // Usunięcie całego drzewa
+            /// Usunięcie całego drzewa
+            drzewo.usunDrzewo(); 
             break;
         case 4:
             std::cout << "Podaj wartosc, do ktorej chcesz znalezc droge: ";
-            std::cin >> wartosc; // Wczytanie wartości do której szukamy drogi
+            /// Wczytanie wartości do której szukamy drogi
+            std::cin >> wartosc; 
             {
-                std::vector<int> sciezka = drzewo.szukajSciezki(wartosc); // Szukanie ścieżki do wartości
+                /// Szukanie ścieżki do wartości
+                std::vector<int> sciezka = drzewo.szukajSciezki(wartosc); 
                 if (sciezka.empty()) {
-                    std::cout << "Element nie znaleziony w drzewie.\n";  // Jeśli ścieżka pusta, element nie istnieje
+                    /// Jeśli ścieżka pusta, element nie istnieje
+                    std::cout << "Element nie znaleziony w drzewie.\n";  
                 }
                 else {
                     std::cout << "Droga do elementu: ";
                     for (int wart : sciezka) {
-                        std::cout << wart << " "; // Wypisanie ścieżki
+                        /// Wypisanie ścieżki
+                        std::cout << wart << " "; 
                     }
                     std::cout << std::endl;
                 }
             }
             break;
         case 5:
-            drzewo.wyswietlPreOrder();  // Wyświetlenie drzewa w preorder
+            /// Wyświetlenie drzewa w preorder
+            drzewo.wyswietlPreOrder();  
             break;
         case 6:
-            drzewo.wyswietlInOrder();   // Wyświetlenie drzewa w inorder
+            /// Wyświetlenie drzewa w inorder
+            drzewo.wyswietlInOrder();   
             break;
         case 7:
-            drzewo.wyswietlPostOrder(); // Wyświetlenie drzewa w postorder
+            /// Wyświetlenie drzewa w postorder
+            drzewo.wyswietlPostOrder(); 
             break;
         case 8:
             std::cout << "Podaj nazwe pliku: ";
-            std::cin >> nazwa_pliku;    // Wczytanie nazwy pliku
-            drzewo.zapiszDoPliku(nazwa_pliku);  // Zapis drzewa do pliku tekstowego
+            /// Wczytanie nazwy pliku
+            std::cin >> nazwa_pliku;    
+            /// Zapis drzewa do pliku tekstowego
+            drzewo.zapiszDoPliku(nazwa_pliku);  
             break;
         case 9:
             std::cout << "Podaj nazwe pliku: ";
-            std::cin >> nazwa_pliku;    // Wczytanie nazwy pliku
-            ZapisOdczyt::wczytajDrzewoBinarne(drzewo, nazwa_pliku);  // Wczytanie drzewa z pliku tekstowego
+            /// Wczytanie nazwy pliku
+            std::cin >> nazwa_pliku;    
+            /// Wczytanie drzewa z pliku tekstowego
+            ZapisOdczyt::wczytajDrzewoBinarne(drzewo, nazwa_pliku); 
             break;
         case 10:
             std::cout << "Podaj nazwe pliku do zapisu (binarny): ";
-            std::cin >> nazwa_pliku;    // Wczytanie nazwy pliku
-            drzewo.zapiszDoPlikuBinarnie(nazwa_pliku); // Zapis drzewa do pliku binarnie
+            /// Wczytanie nazwy pliku
+            std::cin >> nazwa_pliku;    
+            /// Zapis drzewa do pliku binarnie
+            drzewo.zapiszDoPlikuBinarnie(nazwa_pliku); 
             break;
         case 11:
             std::cout << "Podaj nazwe pliku do odczytu (binarny): ";
-            std::cin >> nazwa_pliku;    // Wczytanie nazwy pliku
-            drzewo.wczytajZPlikuBinarnie(nazwa_pliku); // Wczytanie drzewa z pliku zapisanego binarnie
+            /// Wczytanie nazwy pliku
+            std::cin >> nazwa_pliku;    
+            /// Wczytanie drzewa z pliku zapisanego binarnie
+            drzewo.wczytajZPlikuBinarnie(nazwa_pliku); 
             break;
         case 0:
-            return 0; // Zakończenie programu
+            /// Zakończenie programu
+            return 0; 
         }
     }
 }
