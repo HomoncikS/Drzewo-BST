@@ -1,81 +1,103 @@
 #include "BST.h"
 
-// Dodaje nowy wêze³ o zadanej wartoœci do drzewa BST
+/// Dodaje nowy wêze³ o zadanej wartoœci do drzewa BST
 void DrzewoBST::dodaj(int wartosc) {
     korzen = dodajRekurencyjnie(korzen, wartosc);  // Rozpoczyna dodawanie rekurencyjnie od korzenia
 }
 
-// Rekurencyjna pomocnicza funkcja do dodawania nowego wêz³a do drzewa BST
+/// Rekurencyjna pomocnicza funkcja do dodawania nowego wêz³a do drzewa BST
 DrzewoBST::Wezel* DrzewoBST::dodajRekurencyjnie(Wezel* wezel, int wartosc) {
-    if (!wezel) return new Wezel(wartosc);  // Jeœli wêze³ jest pusty, twórz nowy wêze³
-    if (wartosc < wezel->wartosc) {  // Jeœli wartoœæ jest mniejsza, dodaj do lewego poddrzewa
+    /// Jeœli wêze³ jest pusty, twórz nowy wêze³
+    if (!wezel) return new Wezel(wartosc);  
+    /// Jeœli wartoœæ jest mniejsza, dodaj do lewego poddrzewa
+    if (wartosc < wezel->wartosc) {  
         wezel->lewy = dodajRekurencyjnie(wezel->lewy, wartosc);
     }
-    else if (wartosc > wezel->wartosc) {  // Jeœli wartoœæ jest wiêksza, dodaj do prawego poddrzewa
+    /// Jeœli wartoœæ jest wiêksza, dodaj do prawego poddrzewa
+    else if (wartosc > wezel->wartosc) {  
         wezel->prawy = dodajRekurencyjnie(wezel->prawy, wartosc);
     }
-    return wezel;  // Zwróæ wêze³
+    /// Zwróæ wêze³
+    return wezel;  
 }
 
-// Usuwa wêze³ o zadanej wartoœci z drzewa
+/// Usuwa wêze³ o zadanej wartoœci z drzewa
 bool DrzewoBST::usun(int wartosc) {
-    korzen = usunRekurencyjnie(korzen, wartosc);  // Wywo³aj funkcjê usuwania rekurencyjnie
-    return korzen != nullptr;  // Zwróæ true, jeœli drzewo nie jest puste po usuniêciu
+    /// Wywo³aj funkcjê usuwania rekurencyjnie
+    korzen = usunRekurencyjnie(korzen, wartosc);  
+    /// Zwróæ true, jeœli drzewo nie jest puste po usuniêciu
+    return korzen != nullptr;  
 }
 
-// Rekurencyjna pomocnicza funkcja do usuwania wêz³a w drzewie
+/// Rekurencyjna pomocnicza funkcja do usuwania wêz³a w drzewie
 DrzewoBST::Wezel* DrzewoBST::usunRekurencyjnie(Wezel* wezel, int wartosc) {
-    if (!wezel) return nullptr;  // Jeœli wêze³ jest pusty, zakoñcz
-    if (wartosc < wezel->wartosc) {  // Jeœli wartoœæ jest mniejsza, usuñ rekurencyjnie z lewego poddrzewa
+    /// Jeœli wêze³ jest pusty, zakoñcz
+    if (!wezel) return nullptr;  
+    /// Jeœli wartoœæ jest mniejsza, usuñ rekurencyjnie z lewego poddrzewa
+    if (wartosc < wezel->wartosc) { 
         wezel->lewy = usunRekurencyjnie(wezel->lewy, wartosc);
     }
-    else if (wartosc > wezel->wartosc) {  // Jeœli wartoœæ jest wiêksza, usuñ rekurencyjnie z prawego poddrzewa
+    /// Jeœli wartoœæ jest wiêksza, usuñ rekurencyjnie z prawego poddrzewa
+    else if (wartosc > wezel->wartosc) {  
         wezel->prawy = usunRekurencyjnie(wezel->prawy, wartosc);
     }
-    else {  // Jeœli znaleziono wêze³ do usuniêcia
-        if (!wezel->lewy) {  // Jeœli wêze³ nie ma lewego dziecka, zast¹p go prawym dzieckiem
+    /// Jeœli znaleziono wêze³ do usuniêcia
+    else {  
+        /// Jeœli wêze³ nie ma lewego dziecka, zast¹p go prawym dzieckiem
+        if (!wezel->lewy) {  
             Wezel* temp = wezel->prawy;
             delete wezel;
             return temp;
         }
-        else if (!wezel->prawy) {  // Jeœli wêze³ nie ma prawego dziecka, zast¹p go lewym dzieckiem
+        /// Jeœli wêze³ nie ma prawego dziecka, zast¹p go lewym dzieckiem
+        else if (!wezel->prawy) {  
             Wezel* temp = wezel->lewy;
             delete wezel;
             return temp;
         }
-        // W przypadku wêz³a z dwoma dzieæmi, znajdŸ najmniejszy wêze³ w prawym poddrzewie
+        /// W przypadku wêz³a z dwoma dzieæmi, znajdŸ najmniejszy wêze³ w prawym poddrzewie
         Wezel* minWezel = znajdzMin(wezel->prawy);
-        wezel->wartosc = minWezel->wartosc;  // Zamieñ wartoœæ wêz³a z najmniejszym wêz³em
-        wezel->prawy = usunRekurencyjnie(wezel->prawy, minWezel->wartosc);  // Usuñ najmniejszy wêze³
+        /// Zamieñ wartoœæ wêz³a z najmniejszym wêz³em
+        wezel->wartosc = minWezel->wartosc;  
+        /// Usuñ najmniejszy wêze³
+        wezel->prawy = usunRekurencyjnie(wezel->prawy, minWezel->wartosc);  
     }
-    return wezel;  // Zwróæ nowy wêze³ po usuniêciu
+    /// Zwróæ nowy wêze³ po usuniêciu
+    return wezel;  
 }
 
-// Zwraca wêze³ o najmniejszej wartoœci w danym poddrzewie
+/// Zwraca wêze³ o najmniejszej wartoœci w danym poddrzewie
 DrzewoBST::Wezel* DrzewoBST::znajdzMin(Wezel* wezel) {
-    while (wezel && wezel->lewy) wezel = wezel->lewy;  // PrzejdŸ do najdalej po³o¿onego lewego wêz³a
-    return wezel;  // Zwróæ wêze³ o najmniejszej wartoœci
+    /// PrzejdŸ do najdalej po³o¿onego lewego wêz³a
+    while (wezel && wezel->lewy) wezel = wezel->lewy;  
+    /// Zwróæ wêze³ o najmniejszej wartoœci
+    return wezel;  
 }
 
-// Szuka œcie¿ki do wêz³a o zadanej wartoœci w drzewie
+/// Szuka œcie¿ki do wêz³a o zadanej wartoœci w drzewie
 std::vector<int> DrzewoBST::szukajSciezki(int wartosc) {
     std::vector<int> sciezka;
     if (szukajSciezkiRekurencyjnie(korzen, wartosc, sciezka)) {
-        return sciezka;  // Jeœli œcie¿ka zosta³a znaleziona, zwróæ j¹
+        /// Jeœli œcie¿ka zosta³a znaleziona, zwróæ j¹
+        return sciezka;  
     }
     else {
-        return {};  // Zwróæ pusty wektor, jeœli element nie zosta³ znaleziony
+        /// Zwróæ pusty wektor, jeœli element nie zosta³ znaleziony
+        return {};  
     }
 }
 
-// Rekurencyjna funkcja do szukania œcie¿ki do wêz³a o zadanej wartoœci
+/// Rekurencyjna funkcja do szukania œcie¿ki do wêz³a o zadanej wartoœci
 bool DrzewoBST::szukajSciezkiRekurencyjnie(Wezel* wezel, int wartosc, std::vector<int>& sciezka) {
-    if (!wezel) return false;  // Jeœli wêze³ jest pusty, zakoñcz
-    sciezka.push_back(wezel->wartosc);  // Dodaj wartoœæ wêz³a do œcie¿ki
+    /// Jeœli wêze³ jest pusty, zakoñcz
+    if (!wezel) return false;  
+    /// Dodaj wartoœæ wêz³a do œcie¿ki
+    sciezka.push_back(wezel->wartosc);  
     if (wezel->wartosc == wartosc) {
-        return true;  // Jeœli znaleziono wêze³, zakoñcz
+        /// Jeœli znaleziono wêze³, zakoñcz
+        return true;  
     }
-    // Rekurencyjnie sprawdzaj lewego lub prawego potomka w zale¿noœci od wartoœci
+    /// Rekurencyjnie sprawdzaj lewego lub prawego potomka w zale¿noœci od wartoœci
     if (wartosc < wezel->wartosc) {
         return szukajSciezkiRekurencyjnie(wezel->lewy, wartosc, sciezka);
     }
@@ -84,89 +106,113 @@ bool DrzewoBST::szukajSciezkiRekurencyjnie(Wezel* wezel, int wartosc, std::vecto
     }
 }
 
-// Usuwa ca³e drzewo BST
+/// Usuwa ca³e drzewo BST
 void DrzewoBST::usunDrzewo() {
-    usunDrzewo(korzen);  // Wywo³aj funkcjê usuwania rekurencyjnie dla korzenia
-    korzen = nullptr;  // Ustaw korzeñ na nullptr po usuniêciu ca³ego drzewa
+    /// Wywo³aj funkcjê usuwania rekurencyjnie dla korzenia
+    usunDrzewo(korzen);  
+    /// Ustaw korzeñ na nullptr po usuniêciu ca³ego drzewa
+    korzen = nullptr; 
 }
 
-// Rekurencyjna funkcja do usuwania ca³ego drzewa
+/// Rekurencyjna funkcja do usuwania ca³ego drzewa
 void DrzewoBST::usunDrzewo(Wezel* wezel) {
     if (wezel) {
-        usunDrzewo(wezel->lewy);  // Usuñ lewe poddrzewo
-        usunDrzewo(wezel->prawy);  // Usuñ prawe poddrzewo
-        delete wezel;  // Usuñ bie¿¹cy wêze³
+        /// Usuñ lewe poddrzewo
+        usunDrzewo(wezel->lewy); 
+        /// Usuñ prawe poddrzewo
+        usunDrzewo(wezel->prawy);  
+        /// Usuñ bie¿¹cy wêze³
+        delete wezel; 
     }
 }
 
-// Wypisuje wartoœci wêz³ów w drzewie w porz¹dku pre-order
+/// Wypisuje wartoœci wêz³ów w drzewie w porz¹dku pre-order
 void DrzewoBST::wyswietlPreOrder() {
-    wyswietlPreOrder(korzen);  // Wywo³aj funkcjê rekurencyjnie dla korzenia
+    /// Wywo³aj funkcjê rekurencyjnie dla korzenia
+    wyswietlPreOrder(korzen); 
     std::cout << std::endl;
 }
 
-// Rekurencyjna funkcja do wypisywania w porz¹dku pre-order
+/// Rekurencyjna funkcja do wypisywania w porz¹dku pre-order
 void DrzewoBST::wyswietlPreOrder(Wezel* wezel) {
     if (wezel) {
-        std::cout << wezel->wartosc << " ";  // Wypisz wartoœæ bie¿¹cego wêz³a
-        wyswietlPreOrder(wezel->lewy);  // Wypisz lewe poddrzewo
-        wyswietlPreOrder(wezel->prawy);  // Wypisz prawe poddrzewo
+        /// Wypisz wartoœæ bie¿¹cego wêz³a
+        std::cout << wezel->wartosc << " ";  
+        /// Wypisz lewe poddrzewo
+        wyswietlPreOrder(wezel->lewy);  
+        /// Wypisz prawe poddrzewo
+        wyswietlPreOrder(wezel->prawy);  
     }
 }
 
-// Wypisuje wartoœci wêz³ów w drzewie w porz¹dku in-order
+/// Wypisuje wartoœci wêz³ów w drzewie w porz¹dku in-order
 void DrzewoBST::wyswietlInOrder() {
-    wyswietlInOrder(korzen);  // Wywo³aj funkcjê rekurencyjnie dla korzenia
+    /// Wywo³aj funkcjê rekurencyjnie dla korzenia
+    wyswietlInOrder(korzen);  
     std::cout << std::endl;
 }
 
-// Rekurencyjna funkcja do wypisywania w porz¹dku in-order
+/// Rekurencyjna funkcja do wypisywania w porz¹dku in-order
 void DrzewoBST::wyswietlInOrder(Wezel* wezel) {
     if (wezel) {
-        wyswietlInOrder(wezel->lewy);  // Wypisz lewe poddrzewo
-        std::cout << wezel->wartosc << " ";  // Wypisz wartoœæ bie¿¹cego wêz³a
-        wyswietlInOrder(wezel->prawy);  // Wypisz prawe poddrzewo
+        /// Wypisz lewe poddrzewo
+        wyswietlInOrder(wezel->lewy);  
+        /// Wypisz wartoœæ bie¿¹cego wêz³a
+        std::cout << wezel->wartosc << " ";  
+        /// Wypisz prawe poddrzewo
+        wyswietlInOrder(wezel->prawy);  
     }
 }
 
-// Wypisuje wartoœci wêz³ów w drzewie w porz¹dku post-order
+/// Wypisuje wartoœci wêz³ów w drzewie w porz¹dku post-order
 void DrzewoBST::wyswietlPostOrder() {
-    wyswietlPostOrder(korzen);  // Wywo³aj funkcjê rekurencyjnie dla korzenia
+    /// Wywo³aj funkcjê rekurencyjnie dla korzenia
+    wyswietlPostOrder(korzen);  
     std::cout << std::endl;
 }
 
-// Rekurencyjna funkcja do wypisywania w porz¹dku post-order
+/// Rekurencyjna funkcja do wypisywania w porz¹dku post-order
 void DrzewoBST::wyswietlPostOrder(Wezel* wezel) {
     if (wezel) {
-        wyswietlPostOrder(wezel->lewy);  // Wypisz lewe poddrzewo
-        wyswietlPostOrder(wezel->prawy);  // Wypisz prawe poddrzewo
-        std::cout << wezel->wartosc << " ";  // Wypisz wartoœæ bie¿¹cego wêz³a
+        /// Wypisz lewe poddrzewo
+        wyswietlPostOrder(wezel->lewy);  
+        /// Wypisz prawe poddrzewo
+        wyswietlPostOrder(wezel->prawy);  
+        /// Wypisz wartoœæ bie¿¹cego wêz³a
+        std::cout << wezel->wartosc << " ";  
     }
 }
 
-// Zapisuje drzewo do pliku tekstowego
+/// Zapisuje drzewo do pliku tekstowego
 void DrzewoBST::zapiszDoPliku(const std::string& nazwa_pliku) {
-    std::ofstream plik(nazwa_pliku);  // Otwórz plik do zapisu
+    /// Otwórz plik do zapisu
+    std::ofstream plik(nazwa_pliku);  
     if (plik.is_open()) {
-        zapiszDoPliku(korzen, plik);  // Zapisz drzewo rekurencyjnie od korzenia
+        /// Zapisz drzewo rekurencyjnie od korzenia
+        zapiszDoPliku(korzen, plik);  
         plik.close();
     }
 }
 
-// Rekurencyjna funkcja do zapisywania drzewa do pliku tekstowego
+/// Rekurencyjna funkcja do zapisywania drzewa do pliku tekstowego
 void DrzewoBST::zapiszDoPliku(Wezel* wezel, std::ofstream& plik) {
     if (wezel) {
-        plik << wezel->wartosc << " ";  // Zapisz wartoœæ wêz³a
-        zapiszDoPliku(wezel->lewy, plik);  // Zapisz lewe poddrzewo
-        zapiszDoPliku(wezel->prawy, plik);  // Zapisz prawe poddrzewo
+        /// Zapisz wartoœæ wêz³a
+        plik << wezel->wartosc << " ";  
+        /// Zapisz lewe poddrzewo
+        zapiszDoPliku(wezel->lewy, plik);
+        /// Zapisz prawe poddrzewo
+        zapiszDoPliku(wezel->prawy, plik);  
     }
 }
 
-// Zapisuje drzewo do pliku binarnie
+/// Zapisuje drzewo do pliku binarnie
 void DrzewoBST::zapiszDoPlikuBinarnie(const std::string& nazwa_pliku) {
-    std::ofstream plik(nazwa_pliku, std::ios::binary);  // Otwórz plik do zapisu
+    /// Otwórz plik do zapisu
+    std::ofstream plik(nazwa_pliku, std::ios::binary);  
     if (plik.is_open()) {
-        zapiszDoPlikuBinarnie(korzen, plik);  // Zapisz drzewo binarnie
+        /// Zapisz drzewo binarnie
+        zapiszDoPlikuBinarnie(korzen, plik); 
         plik.close();
     }
     else {
@@ -174,25 +220,35 @@ void DrzewoBST::zapiszDoPlikuBinarnie(const std::string& nazwa_pliku) {
     }
 }
 
-// Rekurencyjna funkcja do zapisywania drzewa do pliku binarnie
+/// Rekurencyjna funkcja do zapisywania drzewa do pliku binarnie
 void DrzewoBST::zapiszDoPlikuBinarnie(Wezel* wezel, std::ofstream& plik) {
     if (wezel) {
-        plik.write(reinterpret_cast<const char*>(&wezel->wartosc), sizeof(wezel->wartosc));  // Zapisz wartoœæ wêz³a
-        bool maLewy = (wezel->lewy != nullptr);  // SprawdŸ, czy wêze³ ma lewe dziecko
-        bool maPrawy = (wezel->prawy != nullptr);  // SprawdŸ, czy wêze³ ma prawe dziecko
-        plik.write(reinterpret_cast<const char*>(&maLewy), sizeof(maLewy));  // Zapisz, czy ma lewe dziecko
-        plik.write(reinterpret_cast<const char*>(&maPrawy), sizeof(maPrawy));  // Zapisz, czy ma prawe dziecko
-        if (wezel->lewy) zapiszDoPlikuBinarnie(wezel->lewy, plik);  // Zapisz lewe poddrzewo
-        if (wezel->prawy) zapiszDoPlikuBinarnie(wezel->prawy, plik);  // Zapisz prawe poddrzewo
+        /// Zapisz wartoœæ wêz³a
+        plik.write(reinterpret_cast<const char*>(&wezel->wartosc), sizeof(wezel->wartosc));  
+        /// SprawdŸ, czy wêze³ ma lewe dziecko
+        bool maLewy = (wezel->lewy != nullptr);  
+        /// SprawdŸ, czy wêze³ ma prawe dziecko
+        bool maPrawy = (wezel->prawy != nullptr);  
+        /// Zapisz, czy ma lewe dziecko
+        plik.write(reinterpret_cast<const char*>(&maLewy), sizeof(maLewy));  
+        /// Zapisz, czy ma prawe dziecko
+        plik.write(reinterpret_cast<const char*>(&maPrawy), sizeof(maPrawy));  
+        /// Zapisz lewe poddrzewo
+        if (wezel->lewy) zapiszDoPlikuBinarnie(wezel->lewy, plik);  
+        /// Zapisz prawe poddrzewo
+        if (wezel->prawy) zapiszDoPlikuBinarnie(wezel->prawy, plik);  
     }
 }
 
-// Wczytuje drzewo z pliku zapisanego binarnie
+/// Wczytuje drzewo z pliku zapisanego binarnie
 void DrzewoBST::wczytajZPlikuBinarnie(const std::string& nazwa_pliku) {
-    std::ifstream plik(nazwa_pliku, std::ios::binary);  // Otwórz plik zapisany binarnie do odczytu
+    /// Otwórz plik zapisany binarnie do odczytu
+    std::ifstream plik(nazwa_pliku, std::ios::binary);  
     if (plik.is_open()) {
-        usunDrzewo();  // Usuñ istniej¹ce drzewo przed wczytaniem nowego
-        korzen = wczytajZPlikuBinarnie(plik);  // Wczytaj drzewo z pliku
+        /// Usuñ istniej¹ce drzewo przed wczytaniem nowego
+        usunDrzewo();  
+        /// Wczytaj drzewo z pliku
+        korzen = wczytajZPlikuBinarnie(plik); 
         plik.close();
     }
     else {
@@ -200,21 +256,28 @@ void DrzewoBST::wczytajZPlikuBinarnie(const std::string& nazwa_pliku) {
     }
 }
 
-// Rekurencyjna funkcja do wczytywania drzewa z pliku zapisanego binarnie
+/// Rekurencyjna funkcja do wczytywania drzewa z pliku zapisanego binarnie
 DrzewoBST::Wezel* DrzewoBST::wczytajZPlikuBinarnie(std::ifstream& plik) {
     int wartosc;
     bool maLewy, maPrawy;
     if (!plik.read(reinterpret_cast<char*>(&wartosc), sizeof(wartosc))) {
-        return nullptr;  // Zakoñcz, jeœli koniec pliku
+        /// Zakoñcz, jeœli koniec pliku
+        return nullptr; 
     }
-    Wezel* wezel = new Wezel(wartosc);  // Utwórz nowy wêze³
-    plik.read(reinterpret_cast<char*>(&maLewy), sizeof(maLewy));  // Wczytaj, czy wêze³ ma lewe dziecko
-    plik.read(reinterpret_cast<char*>(&maPrawy), sizeof(maPrawy));  // Wczytaj, czy wêze³ ma prawe dziecko
+    /// Utwórz nowy wêze³
+    Wezel* wezel = new Wezel(wartosc);  
+    /// Wczytaj, czy wêze³ ma lewe dziecko
+    plik.read(reinterpret_cast<char*>(&maLewy), sizeof(maLewy));  
+    /// Wczytaj, czy wêze³ ma prawe dziecko
+    plik.read(reinterpret_cast<char*>(&maPrawy), sizeof(maPrawy)); 
     if (maLewy) {
-        wezel->lewy = wczytajZPlikuBinarnie(plik);  // Wczytaj lewe poddrzewo
+        /// Wczytaj lewe poddrzewo
+        wezel->lewy = wczytajZPlikuBinarnie(plik);  
     }
     if (maPrawy) {
-        wezel->prawy = wczytajZPlikuBinarnie(plik);  // Wczytaj prawe poddrzewo
+        /// Wczytaj prawe poddrzewo
+        wezel->prawy = wczytajZPlikuBinarnie(plik);  
     }
-    return wezel;  // Zwróæ wêze³
+    /// Zwróæ wêze³
+    return wezel;  
 }

@@ -1,0 +1,54 @@
+\doxysection{Zapis\+Odczyt Class Reference}
+\hypertarget{class_zapis_odczyt}{}\label{class_zapis_odczyt}\index{ZapisOdczyt@{ZapisOdczyt}}
+
+
+{\ttfamily \#include $<$Zapis\+Odczyt.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_zapis_odczyt_ae6330d137a80e7c30e7b97cb11b0cd1f}{zapisz\+Drzewo\+Binarne}} (\mbox{\hyperlink{class_drzewo_b_s_t}{Drzewo\+BST}} \&drzewo, const std\+::string \&nazwa\+\_\+pliku)
+\begin{DoxyCompactList}\small\item\em Zapis drzewa do pliku tekstowego. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_zapis_odczyt_a720b7b90a9ef3d53904818f6327398e3}{wczytaj\+Drzewo\+Binarne}} (\mbox{\hyperlink{class_drzewo_b_s_t}{Drzewo\+BST}} \&drzewo, const std\+::string \&nazwa\+\_\+pliku)
+\begin{DoxyCompactList}\small\item\em Wczytanie drzewa z pliku tekstowego. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_zapis_odczyt_a720b7b90a9ef3d53904818f6327398e3}\index{ZapisOdczyt@{ZapisOdczyt}!wczytajDrzewoBinarne@{wczytajDrzewoBinarne}}
+\index{wczytajDrzewoBinarne@{wczytajDrzewoBinarne}!ZapisOdczyt@{ZapisOdczyt}}
+\doxysubsubsection{\texorpdfstring{wczytajDrzewoBinarne()}{wczytajDrzewoBinarne()}}
+{\footnotesize\ttfamily \label{class_zapis_odczyt_a720b7b90a9ef3d53904818f6327398e3} 
+void Zapis\+Odczyt\+::wczytaj\+Drzewo\+Binarne (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_drzewo_b_s_t}{Drzewo\+BST}} \&}]{drzewo}{, }\item[{const std\+::string \&}]{nazwa\+\_\+pliku}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Wczytanie drzewa z pliku tekstowego. 
+
+Funkcja wczytuje drzewo BST z pliku binarnego. Otwórz plik do odczytu w trybie binarnym
+
+Wczytuj wartoœci z pliku, a¿ osi¹gniesz koniec
+
+Dodaj wczytan¹ wartoœæ do drzewa BST
+
+Zamknij plik po odczycie\Hypertarget{class_zapis_odczyt_ae6330d137a80e7c30e7b97cb11b0cd1f}\index{ZapisOdczyt@{ZapisOdczyt}!zapiszDrzewoBinarne@{zapiszDrzewoBinarne}}
+\index{zapiszDrzewoBinarne@{zapiszDrzewoBinarne}!ZapisOdczyt@{ZapisOdczyt}}
+\doxysubsubsection{\texorpdfstring{zapiszDrzewoBinarne()}{zapiszDrzewoBinarne()}}
+{\footnotesize\ttfamily \label{class_zapis_odczyt_ae6330d137a80e7c30e7b97cb11b0cd1f} 
+void Zapis\+Odczyt\+::zapisz\+Drzewo\+Binarne (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_drzewo_b_s_t}{Drzewo\+BST}} \&}]{drzewo}{, }\item[{const std\+::string \&}]{nazwa\+\_\+pliku}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Zapis drzewa do pliku tekstowego. 
+
+Funkcja zapisuje drzewo BST do pliku w formacie binarnym. Otwórz plik do zapisu w trybie binarnym
+
+SprawdŸ, czy plik zosta³ poprawnie otwarty
+
+Wywo³aj metodê zapisu drzewa do pliku w drzewie BST (w pliku binarnym)
+
+Jeœli plik nie mo¿e zostaæ otwarty, funkcja nie wykona ¿adnej akcji
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_zapis_odczyt_8h}{Zapis\+Odczyt.\+h}}\item 
+\mbox{\hyperlink{_zapis_odczyt_8cpp}{Zapis\+Odczyt.\+cpp}}\end{DoxyCompactItemize}

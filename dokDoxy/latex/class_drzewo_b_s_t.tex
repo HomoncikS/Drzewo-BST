@@ -1,0 +1,204 @@
+\doxysection{Drzewo\+BST Class Reference}
+\hypertarget{class_drzewo_b_s_t}{}\label{class_drzewo_b_s_t}\index{DrzewoBST@{DrzewoBST}}
+
+
+Definicja klasy \doxylink{class_drzewo_b_s_t}{Drzewo\+BST}.  
+
+
+
+
+{\ttfamily \#include $<$BST.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_drzewo_b_s_t_1_1_wezel}{Wezel}}
+\begin{DoxyCompactList}\small\item\em Struktura wêz³a drzewa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_drzewo_b_s_t_ac7be3d099f50d29c4c2b897e1c9bef82}{Drzewo\+BST}} ()
+\begin{DoxyCompactList}\small\item\em Konstruktor inicjalizuj¹cy drzewo pustym korzeniem. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_drzewo_b_s_t_aa77e877849d1de258734a8a33cc79a68}{\texorpdfstring{$\sim$}{\string~}\+Drzewo\+BST}} ()
+\begin{DoxyCompactList}\small\item\em Destruktor usuwaj¹cy drzewo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_drzewo_b_s_t_a0255b47bbe1e8da676cac1bf52583812}{dodaj}} (int wartosc)
+\begin{DoxyCompactList}\small\item\em Dodanie wartoœci do drzewa. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_drzewo_b_s_t_afd3009ed92e554c2547256b16d438433}{usun}} (int wartosc)
+\begin{DoxyCompactList}\small\item\em Usuniêcie wartoœci z drzewa. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_drzewo_b_s_t_a0def6110d7fa88c53c905caed8f68b6c}{usun\+Drzewo}} ()
+\begin{DoxyCompactList}\small\item\em Usuniêcie ca³ego drzewa. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_drzewo_b_s_t_a439d2f3e2bae9b1ef66e1662bca74463}{szukaj\+Sciezki}} (int wartosc)
+\begin{DoxyCompactList}\small\item\em Szukanie œcie¿ki do wartoœci. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_drzewo_b_s_t_a64d6e306827f65fe6c73a13870d91532}{wyswietl\+Pre\+Order}} ()
+\begin{DoxyCompactList}\small\item\em Wyœwietlanie drzewa w preorder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_drzewo_b_s_t_a90fad840a34cd8583db342eb7c65fbf0}{wyswietl\+In\+Order}} ()
+\begin{DoxyCompactList}\small\item\em Wyœwietlanie drzewa w inorder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_drzewo_b_s_t_ae8b177e191765099fbd57680e46f20ce}{wyswietl\+Post\+Order}} ()
+\begin{DoxyCompactList}\small\item\em Wyœwietlanie drzewa w postorder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_drzewo_b_s_t_a3369c3ede32936eb9e80f89459c515c2}{zapisz\+Do\+Pliku}} (const std\+::string \&nazwa\+\_\+pliku)
+\begin{DoxyCompactList}\small\item\em Zapis drzewa do pliku tekstowego. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_drzewo_b_s_t_acc50715ed88edf6eac10613e9d84bb79}{wczytaj\+ZPliku}} (const std\+::string \&nazwa\+\_\+pliku)
+\begin{DoxyCompactList}\small\item\em Wczytanie drzewa z pliku tekstowego. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_drzewo_b_s_t_a574aa9051586b60c6946ea1d68f1707a}{zapisz\+Do\+Pliku\+Binarnie}} (const std\+::string \&nazwa\+\_\+pliku)
+\begin{DoxyCompactList}\small\item\em Zapis drzewa do pliku binarnie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_drzewo_b_s_t_a3d11cb50a80d2fa9d6f5b4e07f1d6cdf}{wczytaj\+ZPliku\+Binarnie}} (const std\+::string \&nazwa\+\_\+pliku)
+\begin{DoxyCompactList}\small\item\em Wczytanie drzewa z pliku binarnie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definicja klasy \doxylink{class_drzewo_b_s_t}{Drzewo\+BST}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_drzewo_b_s_t_ac7be3d099f50d29c4c2b897e1c9bef82}\index{DrzewoBST@{DrzewoBST}!DrzewoBST@{DrzewoBST}}
+\index{DrzewoBST@{DrzewoBST}!DrzewoBST@{DrzewoBST}}
+\doxysubsubsection{\texorpdfstring{DrzewoBST()}{DrzewoBST()}}
+{\footnotesize\ttfamily \label{class_drzewo_b_s_t_ac7be3d099f50d29c4c2b897e1c9bef82} 
+Drzewo\+BST\+::\+Drzewo\+BST (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Konstruktor inicjalizuj¹cy drzewo pustym korzeniem. 
+
+\Hypertarget{class_drzewo_b_s_t_aa77e877849d1de258734a8a33cc79a68}\index{DrzewoBST@{DrzewoBST}!````~DrzewoBST@{\texorpdfstring{$\sim$}{\string~}DrzewoBST}}
+\index{````~DrzewoBST@{\texorpdfstring{$\sim$}{\string~}DrzewoBST}!DrzewoBST@{DrzewoBST}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DrzewoBST()}{\string~DrzewoBST()}}
+{\footnotesize\ttfamily \label{class_drzewo_b_s_t_aa77e877849d1de258734a8a33cc79a68} 
+Drzewo\+BST\+::\texorpdfstring{$\sim$}{\string~}\+Drzewo\+BST (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destruktor usuwaj¹cy drzewo. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_drzewo_b_s_t_a0255b47bbe1e8da676cac1bf52583812}\index{DrzewoBST@{DrzewoBST}!dodaj@{dodaj}}
+\index{dodaj@{dodaj}!DrzewoBST@{DrzewoBST}}
+\doxysubsubsection{\texorpdfstring{dodaj()}{dodaj()}}
+{\footnotesize\ttfamily \label{class_drzewo_b_s_t_a0255b47bbe1e8da676cac1bf52583812} 
+void Drzewo\+BST\+::dodaj (\begin{DoxyParamCaption}\item[{int}]{wartosc}{}\end{DoxyParamCaption})}
+
+
+
+Dodanie wartoœci do drzewa. 
+
+Dodaje nowy wêze³ o zadanej wartoœci do drzewa BST. \Hypertarget{class_drzewo_b_s_t_a439d2f3e2bae9b1ef66e1662bca74463}\index{DrzewoBST@{DrzewoBST}!szukajSciezki@{szukajSciezki}}
+\index{szukajSciezki@{szukajSciezki}!DrzewoBST@{DrzewoBST}}
+\doxysubsubsection{\texorpdfstring{szukajSciezki()}{szukajSciezki()}}
+{\footnotesize\ttfamily \label{class_drzewo_b_s_t_a439d2f3e2bae9b1ef66e1662bca74463} 
+std\+::vector$<$ int $>$ Drzewo\+BST\+::szukaj\+Sciezki (\begin{DoxyParamCaption}\item[{int}]{wartosc}{}\end{DoxyParamCaption})}
+
+
+
+Szukanie œcie¿ki do wartoœci. 
+
+Szuka œcie¿ki do wêz³a o zadanej wartoœci w drzewie. Jeœli œcie¿ka zosta³a znaleziona, zwróæ j¹
+
+Zwróæ pusty wektor, jeœli element nie zosta³ znaleziony\Hypertarget{class_drzewo_b_s_t_afd3009ed92e554c2547256b16d438433}\index{DrzewoBST@{DrzewoBST}!usun@{usun}}
+\index{usun@{usun}!DrzewoBST@{DrzewoBST}}
+\doxysubsubsection{\texorpdfstring{usun()}{usun()}}
+{\footnotesize\ttfamily \label{class_drzewo_b_s_t_afd3009ed92e554c2547256b16d438433} 
+bool Drzewo\+BST\+::usun (\begin{DoxyParamCaption}\item[{int}]{wartosc}{}\end{DoxyParamCaption})}
+
+
+
+Usuniêcie wartoœci z drzewa. 
+
+Usuwa wêze³ o zadanej wartoœci z drzewa. Wywo³aj funkcjê usuwania rekurencyjnie
+
+Zwróæ true, jeœli drzewo nie jest puste po usuniêciu\Hypertarget{class_drzewo_b_s_t_a0def6110d7fa88c53c905caed8f68b6c}\index{DrzewoBST@{DrzewoBST}!usunDrzewo@{usunDrzewo}}
+\index{usunDrzewo@{usunDrzewo}!DrzewoBST@{DrzewoBST}}
+\doxysubsubsection{\texorpdfstring{usunDrzewo()}{usunDrzewo()}}
+{\footnotesize\ttfamily \label{class_drzewo_b_s_t_a0def6110d7fa88c53c905caed8f68b6c} 
+void Drzewo\+BST\+::usun\+Drzewo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Usuniêcie ca³ego drzewa. 
+
+Usuwa ca³e drzewo BST. Wywo³aj funkcjê usuwania rekurencyjnie dla korzenia
+
+Ustaw korzeñ na nullptr po usuniêciu ca³ego drzewa\Hypertarget{class_drzewo_b_s_t_acc50715ed88edf6eac10613e9d84bb79}\index{DrzewoBST@{DrzewoBST}!wczytajZPliku@{wczytajZPliku}}
+\index{wczytajZPliku@{wczytajZPliku}!DrzewoBST@{DrzewoBST}}
+\doxysubsubsection{\texorpdfstring{wczytajZPliku()}{wczytajZPliku()}}
+{\footnotesize\ttfamily \label{class_drzewo_b_s_t_acc50715ed88edf6eac10613e9d84bb79} 
+void Drzewo\+BST\+::wczytaj\+ZPliku (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nazwa\+\_\+pliku}{}\end{DoxyParamCaption})}
+
+
+
+Wczytanie drzewa z pliku tekstowego. 
+
+\Hypertarget{class_drzewo_b_s_t_a3d11cb50a80d2fa9d6f5b4e07f1d6cdf}\index{DrzewoBST@{DrzewoBST}!wczytajZPlikuBinarnie@{wczytajZPlikuBinarnie}}
+\index{wczytajZPlikuBinarnie@{wczytajZPlikuBinarnie}!DrzewoBST@{DrzewoBST}}
+\doxysubsubsection{\texorpdfstring{wczytajZPlikuBinarnie()}{wczytajZPlikuBinarnie()}}
+{\footnotesize\ttfamily \label{class_drzewo_b_s_t_a3d11cb50a80d2fa9d6f5b4e07f1d6cdf} 
+void Drzewo\+BST\+::wczytaj\+ZPliku\+Binarnie (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nazwa\+\_\+pliku}{}\end{DoxyParamCaption})}
+
+
+
+Wczytanie drzewa z pliku binarnie. 
+
+Wczytuje drzewo z pliku zapisanego binarnie. Otwórz plik zapisany binarnie do odczytu
+
+Usuñ istniej¹ce drzewo przed wczytaniem nowego
+
+Wczytaj drzewo z pliku\Hypertarget{class_drzewo_b_s_t_a90fad840a34cd8583db342eb7c65fbf0}\index{DrzewoBST@{DrzewoBST}!wyswietlInOrder@{wyswietlInOrder}}
+\index{wyswietlInOrder@{wyswietlInOrder}!DrzewoBST@{DrzewoBST}}
+\doxysubsubsection{\texorpdfstring{wyswietlInOrder()}{wyswietlInOrder()}}
+{\footnotesize\ttfamily \label{class_drzewo_b_s_t_a90fad840a34cd8583db342eb7c65fbf0} 
+void Drzewo\+BST\+::wyswietl\+In\+Order (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Wyœwietlanie drzewa w inorder. 
+
+Wypisuje wartoœci wêz³ów w drzewie w porz¹dku in-\/order. Wywo³aj funkcjê rekurencyjnie dla korzenia\Hypertarget{class_drzewo_b_s_t_ae8b177e191765099fbd57680e46f20ce}\index{DrzewoBST@{DrzewoBST}!wyswietlPostOrder@{wyswietlPostOrder}}
+\index{wyswietlPostOrder@{wyswietlPostOrder}!DrzewoBST@{DrzewoBST}}
+\doxysubsubsection{\texorpdfstring{wyswietlPostOrder()}{wyswietlPostOrder()}}
+{\footnotesize\ttfamily \label{class_drzewo_b_s_t_ae8b177e191765099fbd57680e46f20ce} 
+void Drzewo\+BST\+::wyswietl\+Post\+Order (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Wyœwietlanie drzewa w postorder. 
+
+Wypisuje wartoœci wêz³ów w drzewie w porz¹dku post-\/order. Wywo³aj funkcjê rekurencyjnie dla korzenia\Hypertarget{class_drzewo_b_s_t_a64d6e306827f65fe6c73a13870d91532}\index{DrzewoBST@{DrzewoBST}!wyswietlPreOrder@{wyswietlPreOrder}}
+\index{wyswietlPreOrder@{wyswietlPreOrder}!DrzewoBST@{DrzewoBST}}
+\doxysubsubsection{\texorpdfstring{wyswietlPreOrder()}{wyswietlPreOrder()}}
+{\footnotesize\ttfamily \label{class_drzewo_b_s_t_a64d6e306827f65fe6c73a13870d91532} 
+void Drzewo\+BST\+::wyswietl\+Pre\+Order (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Wyœwietlanie drzewa w preorder. 
+
+Wypisuje wartoœci wêz³ów w drzewie w porz¹dku pre-\/order. Wywo³aj funkcjê rekurencyjnie dla korzenia\Hypertarget{class_drzewo_b_s_t_a3369c3ede32936eb9e80f89459c515c2}\index{DrzewoBST@{DrzewoBST}!zapiszDoPliku@{zapiszDoPliku}}
+\index{zapiszDoPliku@{zapiszDoPliku}!DrzewoBST@{DrzewoBST}}
+\doxysubsubsection{\texorpdfstring{zapiszDoPliku()}{zapiszDoPliku()}}
+{\footnotesize\ttfamily \label{class_drzewo_b_s_t_a3369c3ede32936eb9e80f89459c515c2} 
+void Drzewo\+BST\+::zapisz\+Do\+Pliku (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nazwa\+\_\+pliku}{}\end{DoxyParamCaption})}
+
+
+
+Zapis drzewa do pliku tekstowego. 
+
+Zapisuje drzewo do pliku tekstowego. Otwórz plik do zapisu
+
+Zapisz drzewo rekurencyjnie od korzenia\Hypertarget{class_drzewo_b_s_t_a574aa9051586b60c6946ea1d68f1707a}\index{DrzewoBST@{DrzewoBST}!zapiszDoPlikuBinarnie@{zapiszDoPlikuBinarnie}}
+\index{zapiszDoPlikuBinarnie@{zapiszDoPlikuBinarnie}!DrzewoBST@{DrzewoBST}}
+\doxysubsubsection{\texorpdfstring{zapiszDoPlikuBinarnie()}{zapiszDoPlikuBinarnie()}}
+{\footnotesize\ttfamily \label{class_drzewo_b_s_t_a574aa9051586b60c6946ea1d68f1707a} 
+void Drzewo\+BST\+::zapisz\+Do\+Pliku\+Binarnie (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nazwa\+\_\+pliku}{}\end{DoxyParamCaption})}
+
+
+
+Zapis drzewa do pliku binarnie. 
+
+Zapisuje drzewo do pliku binarnie. Otwórz plik do zapisu
+
+Zapisz drzewo binarnie
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_b_s_t_8h}{BST.\+h}}\item 
+\mbox{\hyperlink{_b_s_t_8cpp}{BST.\+cpp}}\end{DoxyCompactItemize}
